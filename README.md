@@ -1,7 +1,3 @@
-Here's a README template tailored for your Laravel 11 Expenses Manager project:
-
----
-
 # Expenses Manager
 
 A web application built with Laravel 11 that helps users manage and track expenses efficiently.
