@@ -5,9 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\NoteBook;
 use App\Http\Requests\StoreNoteBookRequest;
 use App\Http\Requests\UpdateNoteBookRequest;
+use Auth;
 
 class NoteBookController extends Controller
 {
+
+public $user;
+
+
+    public function __construct(){
+
+        $this->user = Auth::user();
+
+    }
     /**
      * Display a listing of the resource.
      */
@@ -24,6 +34,8 @@ class NoteBookController extends Controller
     public function create()
     {
         //
+
+      //  dd(Auth::user());
 
         return view(view: 'notebook.create');
     }

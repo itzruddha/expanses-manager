@@ -7,4 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class NoteBook extends Model
 {
     //
+
+    protected $fillable = [
+        'title',
+        'type',
+        'amount',
+        'date',
+        'note',
+    ];
+    
 }

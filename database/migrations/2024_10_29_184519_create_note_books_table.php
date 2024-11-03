@@ -14,7 +14,11 @@ return new class extends Migration
         Schema::create('note_books', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
+            $table->string('title')->nullable();
             $table->string('type')->nullable();
+            $table->bigInteger('amount')->nullable();
+            $table->date('date');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
