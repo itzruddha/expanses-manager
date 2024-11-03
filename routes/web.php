@@ -9,9 +9,8 @@ use App\Http\Controllers\DashboardController;
 //     return view('welcome');
 // });
 
-Route::resource('notebook', NoteBookController::class);
+Route::resource('notebook', NoteBookController::class)->middleware('auth');
 Auth::routes();
-
-Route::get('/', [DashboardController::class, 'index'])->name('index');
+Route::get('/', [DashboardController::class, 'index'])->name('index')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
