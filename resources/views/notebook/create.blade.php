@@ -14,7 +14,22 @@
     <div class="page-body">
         <div class="container-xl">
             <div class="row row-cards">
-                <div class="card">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                <form method="POST" action="{{route('notebook.store') }}"  class="card">
+                    @csrf
                     <div class="card-header">
                         <h4 class="card-title">Form</h4>
                     </div>
@@ -22,7 +37,7 @@
                         <div class="row g-5">
                             <div class="col-xl-8">
                                 <div class="row">
-                                    <div class="col-md-6 col-xl-12">                                        
+                                    <div class="col-md-6 col-xl-12">
                                         <div class="mb-3">
                                             <label class="form-label">Title</label>
                                             <input type="text" class="form-control" name="title"
@@ -49,8 +64,8 @@
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Add</button>
                     </div>
-                </div>
-                
+                </form>
+
 
             </div>
         </div>

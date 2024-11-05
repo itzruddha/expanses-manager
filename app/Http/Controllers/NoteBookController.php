@@ -6,6 +6,8 @@ use App\Models\NoteBook;
 use App\Http\Requests\StoreNoteBookRequest;
 use App\Http\Requests\UpdateNoteBookRequest;
 use Auth;
+use Illuminate\Support\Facades\Request;
+use App\Models\User;
 
 class NoteBookController extends Controller
 {
@@ -13,9 +15,11 @@ class NoteBookController extends Controller
 public $user;
 
 
-    public function __construct(){
+    public function __construct(User $user){
 
-        $this->user = Auth::user();
+        $user = Auth::user();
+
+        $this->user = $user;
 
     }
     /**
@@ -25,17 +29,20 @@ public $user;
     {
         //
 
-        return view(view: 'notebook.index');
+        $user = Auth::user();
+        $notebooks = $user->notebooks()->get();
+
+       // dd($notebooks);
+
+        return view(view: 'notebook.index', data: compact('notebooks'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
 
-      //  dd(Auth::user());
 
         return view(view: 'notebook.create');
     }
@@ -46,6 +53,25 @@ public $user;
     public function store(StoreNoteBookRequest $request)
     {
         //
+        $user = Auth::user();
+        $data =[
+
+            'title' => $request->title,
+            'type' =>$request->type,
+            'amount' => $request->amount,
+            'date' => now()->toDateString(),
+
+        ];
+
+        $res = $user->notebooks()->create($data);
+
+        if($res){
+
+            return redirect()->back()->with('success', 'Notebook created successfully.');
+        }else{
+
+            return redirect()->back()->with('error', 'Notebook note created.');
+        }
     }
 
     /**

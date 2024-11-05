@@ -20,7 +20,7 @@
     <link href="{{asset('/')}}assets/css/tabler-vendors.min.css?1692870487" rel="stylesheet"/>
     <link href="{{asset('/')}}assets/css/demo.min.css?1692870487" rel="stylesheet"/>
     <style>
-      @import url('https://rsms.me/inter/inter.css');
+     
       :root {
       	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
       }
@@ -30,7 +30,7 @@
     </style>
   </head>
   <body >
-    <script src="./dist/js/demo-theme.min.js?1692870487"></script>
+    <script src="{{asset('/')}}assets/js/demo-theme.min.js?1692870487"></script>
     <div class="page">
       <!-- Sidebar -->
       @include('layouts.sidebar')
