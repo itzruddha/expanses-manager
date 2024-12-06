@@ -9,7 +9,7 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-header">
-                    <h3 class="card-title">Notebooks</h3>
+                    <h3 class="card-title">Notes</h3>
                   </div>
                   <div class="py-3 card-body border-bottom">
                     <div class="d-flex">
@@ -56,16 +56,15 @@
                             {{$notebook->date}}
                           </td>
                           
-                          
                           <td class="text-end">
                             <span class="dropdown">
                               <button class="align-text-top btn dropdown-toggle" data-bs-boundary="viewport" data-bs-toggle="dropdown" aria-expanded="false">Actions</button>
                               <div class="dropdown-menu dropdown-menu-end" style="">
-                                <a class="dropdown-item" href="#">
-                                  Action
+                                <a class="dropdown-item" href="{{route('notes.edit',  $notebook)}}">
+                                  Edit
                                 </a>
                                 <a class="dropdown-item" href="#">
-                                  Another action
+                                  Delete
                                 </a>
                               </div>
                             </span>

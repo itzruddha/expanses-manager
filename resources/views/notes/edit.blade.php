@@ -28,8 +28,9 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{route('notebook.store') }}"  class="card">
+                <form method="POST" action="{{route('notes.update', ['note' => $note])}}"  class="card">
                     @csrf
+                    @method('PUT')
                     <div class="card-header">
                         <h4 class="card-title">Form</h4>
                     </div>
@@ -40,19 +41,19 @@
                                     <div class="col-md-6 col-xl-12">
                                         <div class="mb-3">
                                             <label class="form-label">Title</label>
-                                            <input type="text" class="form-control" name="title"
+                                            <input type="text" class="form-control" name="title" value="{{optional($note)->title}}"
                                                 placeholder="Enter your Title">
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Type</label>
                                             <select class="form-control" name="type">
-                                                <option value="cr">Credit</option>
-                                                <option value="dr">Debit</option>
+                                                <option value="cr" {{$note->type == 'cr' ?? 'selected'}}>Credit</option>
+                                                <option value="dr" {{$note->type == 'dr' ?? 'selected'}}>Debit</option>
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Amount</label>
-                                            <input type="number" class="form-control" name="amount"
+                                            <input type="number" class="form-control" name="amount" value="{{$note->amount}}"
                                                 placeholder="Enter Amount">
                                         </div>
                                     </div>
@@ -62,7 +63,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" class="btn btn-primary">update</button>
                     </div>
                 </form>
 

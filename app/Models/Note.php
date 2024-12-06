@@ -4,10 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class NoteBook extends Model
+class Note extends Model
 {
-    //
-
     protected $fillable = [
         'title',
         'type',
@@ -20,5 +18,4 @@ class NoteBook extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
 }

@@ -11,7 +11,7 @@ class UpdateNoteBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class UpdateNoteBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|max:255',
+            'type' => 'required|in:cr,dr', // Assuming 'cr' and 'dr' are the only valid options
+            'amount' => 'required|numeric|min:0',
+            'date' => 'nullable|date', // Optional date validation
         ];
     }
 }

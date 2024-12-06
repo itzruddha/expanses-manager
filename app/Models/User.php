@@ -48,6 +48,6 @@ class User extends Authenticatable
 
     public function notebooks()
     {
-        return $this->hasMany(NoteBook::class);
+        return $this->hasMany(Note::class);
     }
 }

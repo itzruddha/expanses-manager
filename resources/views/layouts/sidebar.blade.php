@@ -161,10 +161,10 @@
             <div class="dropdown-menu">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="{{route('notebook.index')}}">
+                  <a class="dropdown-item" href="{{route('notes.index')}}">
                     List
                   </a>
-                  <a class="dropdown-item" href="{{route('notebook.create')}}">
+                  <a class="dropdown-item" href="{{route('notes.create')}}">
                     Create
                   </a>
                  
