@@ -13,10 +13,10 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //$user = Auth::user();
-        // $notebooks = $user->notebooks()->get();
+        $user = Auth::user();
+        $notebooks = $user->notebooks()->paginate(5);
 
-        $notebooks = Note::all();
+        //$notebooks = Note::all();
         // $total = $this->calculation();
 
         return view('notes.index', compact('notebooks'));

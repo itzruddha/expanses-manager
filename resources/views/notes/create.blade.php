@@ -28,7 +28,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{route('note.store') }}"  class="card">
+                <form method="POST" action="{{route('notes.store') }}"  class="card">
                     @csrf
                     <div class="card-header">
                         <h4 class="card-title">Form</h4>
