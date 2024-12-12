@@ -66,10 +66,6 @@
                   </div>
                   <div class="card-footer">
                     {{ $notebooks->links() }}
-                    {{-- <p class="m-0 text-secondary">Showing <span>{{ $notebooks->firstItem() }}</span> to <span>{{ $notebooks->lastItem() }}</span> of <span>{{ $notebooks->total() }}</span> entries</p>
-                    <ul class="m-0 pagination ms-auto">
-                      
-                    </ul> --}}
                   </div>
                 </div>
               </div>
